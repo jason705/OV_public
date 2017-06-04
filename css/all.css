@@ -1,0 +1,255 @@
+html{
+	background-color: rgb(52,80,131);
+	font-family: Microsoft JhengHei;
+}
+a:link,a:visited{
+	color: black;
+	text-decoration: none;
+}
+.header{
+	position: fixed;
+	padding: 1%;
+	top:0;
+	left: 0;
+	width: 98%;
+	background-color: rgb(57,107,192);
+	box-shadow: 0px 3px 4px rgba(0,0,0,0.5);
+}
+.clear{
+	clear:both;
+}
+.logo{
+	float: left;
+	width: 150px;
+	height: 50px;
+	background-color: white;	
+}
+.search{
+	border-radius: 3px;
+	margin-top: 13px;
+	margin-right: 20px;
+	height: 30px;
+	font-size: 18px;
+	width: 15%;
+	background-color: rgba(0,0,0,0);
+	float: right;
+	border:0px black solid;
+	border-bottom: 1px white solid;
+	transition:0.5s;
+}
+.search:focus{
+	border-bottom: 1px black solid;
+	background-color: rgb(255,255,255) 
+}
+#function_button{
+	float: right;
+}
+#function_button button{
+	margin-top: 5px;
+	margin-left: 10px;
+	width: 70px;
+	height: 40px;
+	background-color: rgb(255,255,255);
+	border:0px black solid;
+}
+#function_windows{
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+	position: fixed;
+	top:80px;
+	right: 0px;
+	display: none;
+	border-radius: 3px;
+	background-color: white;
+	width: 300px;
+	padding:10px;
+}
+#function_windows a{
+	display: block;
+}
+#function_button button{
+	background-color: rgba(97,144,224);
+	transition:0.3s;
+}
+#function_button .actived{
+	box-shadow: 0px 2px 4px white;
+	background-color: rgb(255,255,255);
+}
+.user_button{
+	border-radius: 3px;
+	float: left;
+	width: 120px;
+	margin: 10px;
+	text-align: center;
+	transition:0.5s;
+}
+.user_button:hover{
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+}
+.user_button img{
+	width: 120px;
+	height: 120px;
+}
+.contenter{
+	max-width: 650px;
+	margin: 0 auto;
+}
+.contenter a{
+	display: block;
+}
+.wrap{
+	margin-top: 80px;
+}
+.contenter{
+	padding-top: 20px;
+}
+.vote_box{
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+	margin-bottom: 30px;
+	border-radius: 5px;
+	border: 3px white solid;
+	background-color: white;
+	padding: 10px;
+	transition:0.3s;
+}
+.vote_box:hover{
+	border: 3px rgb(126,176,251) solid;
+}
+.vote_box h2{
+	float: left;
+	width: 454px;
+}
+.vote_box p{
+	float: right;
+	width: 170px;
+}
+
+.footer{
+	margin: 0 auto;
+	margin-top: 30px;
+	padding-top: 20px;
+	max-width: 600px;
+	text-align: center;
+	border-top: 1px white solid;
+}
+.footer a{
+	color: white;
+	margin: 0 20px;
+	transition:0.5s;
+}
+.footer a:hover{
+	color:rgb(92,237,250);
+}
+.create_form{
+	display: none;
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.5);
+}
+.form_content{
+	position: relative;
+	padding:0px 20px 20px 20px;
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	text-align: center;
+	max-width: 600px;
+	margin:0 auto;
+	background-color: rgb(255,255,255);
+}
+.form_content h2{
+	margin-top: 40px;
+	margin-bottom: 0px;
+	font-size: 40px;
+}
+.form_content table{
+	margin: 0 auto;
+}
+.form_content input.text{
+	width: 300px;
+}
+.form_content .close{
+	position: absolute;
+	top: 20px;
+	right:20px;
+	background-color:rgba(0,0,0,0); 
+	border: none;
+	float: right;
+	width: 20px;
+	height: 20px;
+}
+.form_content .close:hover{
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+}
+
+
+
+
+.vote_content{
+	background-color: white;
+	padding: 10px 20px 30px 20px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+	font-size: 20px;
+}
+.vote_content h2{
+	font-size: 40px;
+}
+.vote_content form{
+	margin-left: 20px;
+}
+.vote_content form p{
+	text-align: center;
+}
+.vote_content form .send{
+	width: 120px;
+	height: 60px;
+	font-size: 20px;
+	border: none;
+	background-color: rgba(0,0,0,0);
+	font-family:  Microsoft JhengHei;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	float: left;
+	margin-left: 140px;
+	margin-right: 50px;
+}
+.vote_content form .send:hover{
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+}
+.vote_content form .send:active{
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5) inset;
+}
+.vote_content form .show_result{
+	display: block;
+	width: 120px;
+	height: 60px;
+	font-size: 20px;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	text-align: center;
+	line-height: 60px;
+	float: left;
+}
+.vote_content form .show_result:hover{
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);	
+}
+.vote_content form .show_result:active{
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5) inset;
+}
+.vote_content form .dis{
+	background-color: rgba(0,0,0,0.2);
+	color: rgba(0,0,0,0.2);
+}
+.back_vote{
+	display: block;
+	width: 120px;
+	height: 60px;
+	font-size: 20px;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	text-align: center;
+	line-height: 60px;
+	margin-left:220px;
+}
+.vote_content form canvas{
+	
+}
