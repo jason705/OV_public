@@ -224,6 +224,7 @@ function fblogin(){
 	var errorMessage = error.message;
 	var email = error.email;
 	var credential = error.credential;
-		});
+	});
+setTimeout(function(){location.reload();},2000);
 };
 
