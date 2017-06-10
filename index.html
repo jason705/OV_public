@@ -9,47 +9,16 @@
 	<div class="header">
 		<a href="index.html"><div class="logo"><img src="" alt=""></div></a>
 		<div id="function_button"></div>
-		<form action="" class='search_form'>
-		<input type="text" class="search" onclick="search()" placeholder='搜尋....'>
-		</form>
+		<input type="text" class="search" id='search' placeholder='搜尋....'>
 		<div class="clear"></div>
 	</div>
 	<div class="wrap">
 		<div id="function_windows">
 		</div>
-		<div class="contenter">
-			<a href="vote.html">
+		<div class="contenter" id='contenter'>
+			<a href="#">
 				<div class="vote_box">
-					<h2 id="title">投票主題</h2>
-					<p>目前已有<span id="people_count">20</span>人投票<br/>截止日期：03/03 12:00</p>
-					<div class="clear"></div>
-				</div>
-			</a>
-			<a href="vote.html">
-				<div class="vote_box">
-					<h2 id="title">投票主題</h2>
-					<p>目前已有<span id="people_count">20</span>人投票<br/>截止日期：03/03 12:00</p>
-					<div class="clear"></div>
-				</div>
-			</a>
-			<a href="vote.html">
-				<div class="vote_box">
-					<h2 id="title">投票主題</h2>
-					<p>目前已有<span id="people_count">20</span>人投票<br/>截止日期：03/03 12:00</p>
-					<div class="clear"></div>
-				</div>
-			</a>
-			<a href="vote.html">
-				<div class="vote_box">
-					<h2 id="title">投票主題</h2>
-					<p>目前已有<span id="people_count">20</span>人投票<br/>截止日期：03/03 12:00</p>
-					<div class="clear"></div>
-				</div>
-			</a>
-			<a href="vote.html">
-				<div class="vote_box">
-					<h2 id="title">投票主題</h2>
-					<p>目前已有<span id="people_count">20</span>人投票<br/>截止日期：03/03 12:00</p>
+					<h2 id="title">資料讀取中.....</h2>
 					<div class="clear"></div>
 				</div>
 			</a>
@@ -70,17 +39,23 @@
 					<td>投票名稱：</td>
 					<td><input type="text" class="text" name='Vote_Name'></td>
 				</tr>
+				</table>
+				<div class='choice_place'>
+				<table>
 				<tr>
 					<td>選項：</td>
-					<td><input type="text" class="text" name='Vote_choice_01'></br></td>
+					<td><input type="text" class="text" id='choice_text' onkeyup='addchoice()'></br></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="text" class="text" name='Vote_choice_02'></br></td>
+					<td><input type="text" class="text" id='choice_text' onkeyup='addchoice()'></br></td>
 				</tr>
+				</table>
+				</div>
+				<table>
 				<tr>
 					<td>截止日期：</td>
-					<td><input type="datetime" class="text" name='Vote_endtime'></br></td>
+					<td><input type="datetime" class="date" id='Vote_endtime' maxlength='4'>年<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>月<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>日<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>:<input type="datetime" class="date" id='Vote_endtime' maxlength='2'></br></td>
 				</tr>
 			</table>
 				<input type='checkbox' class='Vote_private' id='Vote_private' name='Vote_private'>僅有網址者可以參與投票</br>
@@ -92,17 +67,6 @@
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 <script src='js/jquery-3.2.1.min.js'></script>
 <script src='js/all.js'></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCZWkrjAHUpqW9KsJIQ90k53NLgM-lyGgI",
-    authDomain: "online-vote-169a4.firebaseapp.com",
-    databaseURL: "https://online-vote-169a4.firebaseio.com",
-    projectId: "online-vote-169a4",
-    storageBucket: "online-vote-169a4.appspot.com",
-    messagingSenderId: "58452728917"
-  };
-  firebase.initializeApp(config);
-</script>
+<script src='js/search.js'></script>
 </body>
 </html>

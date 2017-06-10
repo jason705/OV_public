@@ -116,11 +116,10 @@ a:link,a:visited{
 }
 .vote_box h2{
 	float: left;
-	width: 454px;
+	width: 60%;
 }
 .vote_box p{
 	float: right;
-	width: 170px;
 }
 
 .footer{
@@ -183,6 +182,13 @@ a:link,a:visited{
 	box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
 }
 
+.choice_place{
+	margin-left: 30px;
+}
+.date{
+	width: 30px;
+}
+
 
 
 
@@ -199,10 +205,10 @@ a:link,a:visited{
 .vote_content form{
 	margin-left: 20px;
 }
-.vote_content form p{
+.vote_content p{
 	text-align: center;
 }
-.vote_content form .send{
+.vote_content .send{
 	width: 120px;
 	height: 60px;
 	font-size: 20px;
@@ -214,14 +220,16 @@ a:link,a:visited{
 	margin-left: 140px;
 	margin-right: 50px;
 }
-.vote_content form .send:hover{
+.vote_content .send:hover{
 	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
 }
-.vote_content form .send:active{
+.vote_content .send:active{
 	box-shadow: 0px 2px 6px rgba(0,0,0,0.5) inset;
 }
-.vote_content form .show_result{
+.vote_content .show_result{
+	font-family:  Microsoft JhengHei;
 	display: block;
+	border: none;
 	width: 120px;
 	height: 60px;
 	font-size: 20px;
@@ -230,13 +238,13 @@ a:link,a:visited{
 	line-height: 60px;
 	float: left;
 }
-.vote_content form .show_result:hover{
+.vote_content .show_result:hover{
 	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);	
 }
-.vote_content form .show_result:active{
+.vote_content .show_result:active{
 	box-shadow: 0px 2px 6px rgba(0,0,0,0.5) inset;
 }
-.vote_content form .dis{
+.vote_content .dis{
 	background-color: rgba(0,0,0,0.2);
 	color: rgba(0,0,0,0.2);
 }
@@ -250,6 +258,7 @@ a:link,a:visited{
 	line-height: 60px;
 	margin-left:220px;
 }
-.vote_content form canvas{
-	
+
+#function_windows{
+	text-align: center;
 }

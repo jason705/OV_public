@@ -18,15 +18,7 @@
 		<div id="function_windows">
 		</div>
 		<div class="contenter">
-			<div class="vote_content">
-				<h2>投票主題</h2>
-				<form action="">
-						<canvas id='bar_0' width='400px' height='400px'></canvas></br>
-					<p>已有20人參與此投票</br>
-					截止日期：03/03 12:00</br></p>
-					<a href='vote.html' class='back_vote'>返回投票</a>
-					<div class="clear"></div>
-				</form>
+			<div class="vote_content" id='vote_content'>
 			</div>
 		</div>
 		<div class="footer">
@@ -45,17 +37,23 @@
 					<td>投票名稱：</td>
 					<td><input type="text" class="text" name='Vote_Name'></td>
 				</tr>
+				</table>
+				<div class='choice_place'>
+				<table>
 				<tr>
 					<td>選項：</td>
-					<td><input type="text" class="text" name='Vote_choice_01'></br></td>
+					<td><input type="text" class="text" id='choice_text' onkeyup='addchoice()'></br></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="text" class="text" name='Vote_choice_02'></br></td>
+					<td><input type="text" class="text" id='choice_text' onkeyup='addchoice()'></br></td>
 				</tr>
+				</table>
+				</div>
+				<table>
 				<tr>
 					<td>截止日期：</td>
-					<td><input type="datetime" class="text" name='Vote_endtime'></br></td>
+					<td><input type="datetime" class="date" id='Vote_endtime' maxlength='4'>年<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>月<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>日<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>:<input type="datetime" class="date" id='Vote_endtime' maxlength='2'></br></td>
 				</tr>
 			</table>
 				<input type='checkbox' class='Vote_private' id='Vote_private' name='Vote_private'>僅有網址者可以參與投票</br>
@@ -68,21 +66,9 @@
 
 
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-<script src='js/Chart.js'></script>
+<script src='js/chart.js'></script>
 <script src='js/jquery-3.2.1.min.js'></script>
 <script src='js/bar.js'></script>
 <script src='js/all.js'></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCZWkrjAHUpqW9KsJIQ90k53NLgM-lyGgI",
-    authDomain: "online-vote-169a4.firebaseapp.com",
-    databaseURL: "https://online-vote-169a4.firebaseio.com",
-    projectId: "online-vote-169a4",
-    storageBucket: "online-vote-169a4.appspot.com",
-    messagingSenderId: "58452728917"
-  };
-  firebase.initializeApp(config);
-</script>
 </body>
 </html>

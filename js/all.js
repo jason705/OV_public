@@ -5,8 +5,8 @@ $(document).ready(function(){
 	}else{
 		document.getElementById('function_button').innerHTML="<button class='login' onclick='open_login()'>登入</button><button class='register' onclick='open_register()'>註冊</button>";
 	}
-})});
 
+})});
 
 	var config = {
     apiKey: "AIzaSyCZWkrjAHUpqW9KsJIQ90k53NLgM-lyGgI",
@@ -18,37 +18,38 @@ $(document).ready(function(){
   	};
   	firebase.initializeApp(config);
 
-        var create_error_func = function(error) {
-                  var errorCode     = error.code;
-                  var errorMessage  = error.message;
-                  alert("註冊失敗:"+errorMessage);  
-        }
-        var create_success_func = function(error) {
-                  alert("註冊成功");
-                  location.reload();
-        }        
+
+    var create_error_func = function(error) {
+        var errorCode     = error.code;
+        var errorMessage  = error.message;
+        alert("註冊失敗:"+errorMessage);  
+    }
+    var create_success_func = function(error) {
+        alert("註冊成功");
+        location.reload();
+    }        
         
-        var login_error_func = function(error) {
-                  var errorCode     = error.code;
-                  var errorMessage  = error.message;
-                  alert("登入失敗:"+errorMessage);  
-        }
-        var login_success_func = function(error) {
-                  alert("登入成功");  
-                  location.reload();                  
-        }          
+    var login_error_func = function(error) {
+        var errorCode     = error.code;
+        var errorMessage  = error.message;
+        alert("登入失敗:"+errorMessage);  
+    }
+    var login_success_func = function(error) {
+        alert("登入成功");  
+        location.reload();                  
+    }          
         
 
-  	function login(){
-  		var account= $('#account').val();
-  		var pwd= $('#pwd').val();
-        firebase.auth().signInWithEmailAndPassword(account, pwd).then(login_success_func).catch(login_error_func);
-  	}
-  	function register(){
-  		var account= $('#account').val();
-  		var pwd= $('#pwd').val();
-  		firebase.auth().createUserWithEmailAndPassword(account,pwd).then(create_success_func).catch(create_error_func);
-  	}
+function login(){
+	var account= $('#account').val();
+	var pwd= $('#pwd').val();
+    firebase.auth().signInWithEmailAndPassword(account, pwd).then(login_success_func).catch(login_error_func);
+}
+function register(){
+	var account= $('#account').val();
+	var pwd= $('#pwd').val();
+	firebase.auth().createUserWithEmailAndPassword(account,pwd).then(create_success_func).catch(create_error_func);
+}
 
 function logout(){
 firebase.auth().signOut().then(function() {
@@ -59,19 +60,31 @@ firebase.auth().signOut().then(function() {
 
 function open_login(){
 	$('.login').toggleClass("actived");
-	document.getElementById('function_windows').innerHTML="<h2>登入</h2><input type='text' id='account' placeholder='帳號'/><input type='text' id='pwd' placeholder='密碼'/><button onclick='login()'>登入</button><button onclick=''>FB登入</button>";
-	$('#function_windows').stop().slideToggle(500);
+	if($('#function_windows').attr('class')!='reg'){
+		$('#function_windows').stop().slideToggle(500);
+	}
+	$('#function_windows').toggleClass("log");
+	$('.reg').removeClass('reg');
+
+	document.getElementById('function_windows').innerHTML="<h2>登入</h2><input type='text' id='account' placeholder='帳號'/><input type='text' id='pwd' placeholder='密碼'/></br><button onclick='login()'>登入</button></br><button onclick='fblogin()'>FB登入</button>";
+	$('.register.actived').removeClass('actived');
 }
 
 function open_register(){
 	$('.register').toggleClass("actived");
-	document.getElementById('function_windows').innerHTML="<h2>註冊</h2><input type='text' id='account' placeholder='帳號'/><input type='text' id='pwd' placeholder='密碼'/><button onclick='register()'>註冊</button><button onclick=''>FB登入</button>";
-	$('#function_windows').stop().slideToggle(500);
-}
+	if($('#function_windows').attr('class')!='log'){
+		$('#function_windows').stop().slideToggle(500);
+	}
+	$('#function_windows').toggleClass("reg");
+	$('.log').removeClass('log');
+
+	document.getElementById('function_windows').innerHTML="<h2>註冊</h2><input type='text' id='account' placeholder='帳號'/><input type='text' id='pwd' placeholder='密碼'/></br><button onclick='register()'>註冊</button></br><button onclick='fblogin()'>FB登入</button>";
+	$('.login.actived').removeClass('actived');
+};
 
 function open_user(){
 	$('.user').toggleClass("actived");
-	document.getElementById('function_windows').innerHTML="<a href=''><div class='user_button'><img src=''/>我建立的投票</div></a><a href=''><div class='user_button'><img src=''/>我投選的投票</div></a><a href=''><div class='user_button'><img src=''/>意見回饋</div></a><a href='javascript:logout()'><div class='user_button'><img src=''/>登出</div></a>";
+	document.getElementById('function_windows').innerHTML="<a href='index.html?created_vote'><div class='user_button'><img src=''/>我建立的投票</div></a><a href='index.html?voted_vote'><div class='user_button'><img src=''/>我投選的投票</div></a><a href=''><div class='user_button'><img src=''/>意見回饋</div></a><a href='javascript:logout()'><div class='user_button'><img src=''/>登出</div></a>";
 	$('#function_windows').stop().slideToggle(500);
 }
 
@@ -80,31 +93,77 @@ $('.create').toggleClass("actived");
 $('.create_form').show();
 }
 
+function addchoice(){
+	var choice_count=0;
+	var total_count=0;
+		$('input').each(function(n){
+			if($(this).is('#choice_text')){
+				total_count+=1;
+				if($(this).val()!=''){
+				choice_count+=1;
+				}
+			}
+		})
+		if(total_count==choice_count){
+			$('.choice_place table').append("<tr><td></td><td><input type='text' class='text' id='choice_text' onkeyup='addchoice()'></br></td></tr>");
+		}
+};
+
 function form_check(){
 	var vform=document.forms['vote_form'];
 	var vname=vform.elements['Vote_Name'].value;
-	var vchoice01=vform.elements['Vote_choice_01'].value;
-	var vchoice02=vform.elements['Vote_choice_02'].value;
-	var vtime=vform.elements['Vote_endtime'].value;
 	var vprivate=new Boolean(vform.elements['Vote_private'].value);
 	var vresult=new Boolean(vform.elements['Vote_result'].value);
+	var count=0;
 	if(vname==""){
 		alert('請輸入投票名稱');
-	}else if(vchoice01==''||vchoice02==''){
+	}else{
+		$('input').each(function(n){
+			if($(this).is('#choice_text')){
+				if($(this).val()!=''){
+				count+=1;
+				}
+			}
+		})
+	if(count<2){
 		alert('至少需輸入兩個選項');
-	}else if(vtime==''){
+	}else{
+		count=0;
+		$('input').each(function(n){
+			if($(this).is('#Vote_endtime')){
+				if($(this).val()!=''){
+				count+=1;
+				}
+			}
+		})		
+	if(count!='5'){
 		alert('請輸入截止時間')
 	}else{
-		console.log('111');
 		form_create(vform);
 	}
-};
+}
+}};
 
 function form_create(form){
+	var choice=[];
+	var date=[];
+	var vote=[];
+		$('input').each(function(n){
+			if($(this).is('#choice_text')){
+				if($(this).val()!=''){
+				choice.push($(this).val());
+				vote.push(0);
+				}
+			}
+			if($(this).is('#Vote_endtime')){
+				if($(this).val()!=''){
+				date.push($(this).val());
+				}
+			}
+		})
+		var vtime=new Date(date[0],date[1]-1,date[2],date[3],date[4]);
+		vtime=vtime.getFullYear()+'/'+(parseInt(vtime.getMonth())+1)+'/'+vtime.getDate()+' '+vtime.getHours()+':'+vtime.getMinutes();
 		var vname=form.elements['Vote_Name'].value;
-		var vchoice01=form.elements['Vote_choice_01'].value;
-		var vchoice02=form.elements['Vote_choice_02'].value;
-		var vtime=form.elements['Vote_endtime'].value;
 		if(document.getElementById('Vote_private').checked){
 			var vprivate='true';
 		}else{
@@ -115,14 +174,20 @@ function form_create(form){
 		}else{
 			var vresult='false';
 		}
-
-		firebase.database().ref('vote_subject/').push({
+		var user = firebase.auth().currentUser;
+		var key=firebase.database().ref().push().key;
+		firebase.database().ref('vote_subject/'+key).set({
+		creater:user.uid,
+		key:key,
     	votename: vname,
     	endtime: vtime,
     	private : vprivate,
     	result : vresult,
-    	choice: [vchoice01,vchoice02]
+    	choice: choice,
+    	vote: vote,
+    	count: 0
   });
+setTimeout(function(){location.reload();},2000);
 }
 
 
@@ -139,12 +204,26 @@ $('.create_form').click(function(evt){
 });
 
 
-function search(){
-	firebase.database().ref('/vote_subject/vote_id').once('value').then(function(snapshot) {
-		console.log(snapshot.val().votename);
-	})
-}
-
-$('show_result').click(function(){
-	
+$('.search').keydown(function(event){   
+   if(event.keyCode==13){
+	var query=document.getElementById("search").value;
+	window.location.href='index.html?query='+query;
+	}
 });
+
+function fblogin(){
+	var provider = new firebase.auth.FacebookAuthProvider();
+	provider.setCustomParameters({
+	'display': 'popup'
+	});
+	firebase.auth().signInWithPopup(provider).then(function(result) {
+	var token = result.credential.accessToken;
+	var user = result.user;
+	}).catch(function(error) {
+	var errorCode = error.code;
+	var errorMessage = error.message;
+	var email = error.email;
+	var credential = error.credential;
+		});
+};
+
