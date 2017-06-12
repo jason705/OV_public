@@ -225,6 +225,5 @@ function fblogin(){
 	var email = error.email;
 	var credential = error.credential;
 	});
-setTimeout(function(){location.reload();},2000);
 };
 
