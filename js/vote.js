@@ -28,7 +28,7 @@ function button_enable(){
 		}
 	})
 	firebase.database().ref('/vote_subject/'+key).once('value',function(snapshot){
-		if(snapshot.val().result=='false'||snapshot.val().creater!=firebase.auth().currentUser.uid){
+		if(snapshot.val().result=='false'&&snapshot.val().creater!=firebase.auth().currentUser.uid){
 			$('.vote_content').append("<button class='show_result dis' disabled>觀看結果</button><div class='clear'></div>");
 		}else{
 			$('.vote_content').append("<a href='vote_result.html?key="+key+"' class='show_result'>觀看結果</a><div class='clear'></div>");
