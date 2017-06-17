@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>投票結果</title>
+	<title>OV線上投票</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/all.css">
 </head>
@@ -18,8 +18,17 @@
 	<div class="wrap">
 		<div id="function_windows">
 		</div>
-		<div class="contenter">
-			<div class="vote_content" id='vote_content'>
+		<div class="contenter" id='contenter'>
+			<div class="feedback_box" id='feedback_box'>
+				<h2>意見回饋</h2>
+				意見:</br>
+				<textarea name="feedback_content" id="feedback_content" placeholder='輸入意見...'></textarea><br/>
+				評分:</br><input type="number" class='point_box' id='feedback_point' min="0" max="5" maxlength='3' step='0.1' value="2.5"></br>
+				<button class='feedback_send' id='feedback_send'>送出</button>
+			</div>
+			<div id='other_feedback'>
+				<h2>其他人的回饋</h2>
+				<div id='temp'>讀取中....</div>
 			</div>
 		</div>
 		<div class="footer">
@@ -63,13 +72,9 @@
 			<button class='vcreate' onclick="form_check()">建立投票</button>
 		</div>
 	</div>
-
-
-
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-<script src='js/Chart.js'></script>
 <script src='js/jquery-3.2.1.min.js'></script>
-<script src='js/bar.js'></script>
 <script src='js/all.js'></script>
+<script src='js/feedback.js'></script>
 </body>
 </html>

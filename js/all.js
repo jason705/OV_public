@@ -86,13 +86,13 @@ function open_register(){
 
 function open_user(){
 	$('.user').toggleClass("actived");
-	document.getElementById('function_windows').innerHTML="<a href='index.html?created_vote'><div class='user_button'><img src='img/created.png'/>建立的投票</div></a><a href='index.html?voted_vote'><div class='user_button'><img src='img/voted.png'/>投選的投票</div></a><a href=''><div class='user_button'><img src='img/feedback.png'/>意見回饋</div></a><a href='javascript:logout()'><div class='user_button'><img src='img/logout.png'/>登出</div></a>";
+	document.getElementById('function_windows').innerHTML="<a href='index.html?created_vote'><div class='user_button'><img src='img/created.png'/>建立的投票</div></a><a href='index.html?voted_vote'><div class='user_button'><img src='img/voted.png'/>投選的投票</div></a><a href='feedback.html'><div class='user_button'><img src='img/feedback.png'/>意見回饋</div></a><a href='javascript:logout()'><div class='user_button'><img src='img/logout.png'/>登出</div></a>";
 	$('#function_windows').stop().slideToggle(500);
 }
 
 function create_vote(){
 $('.create').toggleClass("actived");
-$('.create_form').show();
+$('.create_form').show('fast');
 }
 
 function addchoice(){
@@ -107,7 +107,8 @@ function addchoice(){
 			}
 		})
 		if(total_count==choice_count){
-			$('.choice_place table').append("<tr><td></td><td><input type='text' class='text' id='choice_text' onkeyup='addchoice()'></br></td></tr>");
+			$('.choice_place table').append("<tr><td></td><td><input type='text' style='display:none;' class='text' id='choice_text' onkeyup='addchoice()'></br></td></tr>");
+			$('.text').show('fast');
 		}
 };
 
@@ -197,13 +198,13 @@ setTimeout(function(){location.replace('index.html');},2000);
 
 $('.close').click(function(){
 	$('.create').toggleClass('actived');
-	$('.create_form').hide();
+	$('.create_form').hide('fast');
 });
 
 $('.create_form').click(function(evt){
 	if($(evt.target).parents('.form_content').length==0 && evt.target.class!='create_form'){
 	$('.create').toggleClass('actived');
-	$('.create_form').hide();
+	$('.create_form').hide('fast');
 	}
 });
 

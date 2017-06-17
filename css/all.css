@@ -324,6 +324,7 @@ a:link,a:visited{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	width: 150px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 #mobile_button_list button{
 	background-color: rgba(0,0,0,0);
@@ -359,6 +360,75 @@ a:link,a:visited{
 	height: 20px;
 }
 
+.feedback_box{
+	width: 90%;
+	background-color: white;
+	padding: 3% 5% 6% 5%;
+	border-radius: 5px;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+	font-size: 20px;
+	text-align: center;
+}
+.feedback_box h2{
+	font-size: 40px;
+	width: 100%;
+}
+
+#feedback_content{
+	resize:none;
+	font-size: 20px;
+	width: 100%;
+	height: 50px;
+	border-radius: 5px;
+	font-family:  Microsoft JhengHei;
+}
+
+.point_box{
+	font-size: 20px;
+	border-radius: 5px;
+}
+
+.feedback_send{
+	margin-top: 20px;
+	font-size: 20px;
+	border:0px;
+	background-color: rgba(0,0,0,0);
+	font-family:  Microsoft JhengHei;
+	width: 30%;
+	height: 60px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+	border-radius: 5px;
+}
+.feedback_send:hover{
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+}
+.feedback_send:active{
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.5) inset;
+}
+#other_feedback{
+	margin-top:20px;
+	margin-bottom:20px;
+	width: 90%;
+	background-color: white;
+	padding: 3% 5% 6% 5%;
+	border-radius: 5px;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+	font-size: 20px;
+	text-align: center;
+}
+.feed{
+	margin-top: 10px;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+	border-radius: 5px;
+}
+.feedback_text{
+	float: left;
+	width: 70%;
+}
+.feedback_point{
+	float: right;
+	width: 30%;
+}
 @media(max-width:768px){
 
 }
