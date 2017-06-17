@@ -3,15 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>投票結果</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/all.css">
 </head>
 <body>
 	<div class="header">
-		<a href="index.html"><div class="logo"><img src="" alt=""></div></a>
+		<a href="index.html"><div class="logo"><img src="img/Logo.png" alt=""><p>OV線上投票</p></div></a>
 		<div id="function_button"></div>
-		<form action="" class='search_form'>
-		<input type="text" class="search" onclick="search()" placeholder='搜尋....'>
-		</form>
+		<button id='mobile_button' onclick="show_list()"><img src="img/list.png" alt=""></button>
+		<div id='mobile_button_list'></div>
+		<input type="text" class="search" id='search' placeholder='搜尋....'>
 		<div class="clear"></div>
 	</div>
 	<div class="wrap">
@@ -53,7 +54,7 @@
 				<table>
 				<tr>
 					<td>截止日期：</td>
-					<td><input type="datetime" class="date" id='Vote_endtime' maxlength='4'>年<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>月<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>日<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>:<input type="datetime" class="date" id='Vote_endtime' maxlength='2'></br></td>
+					<td><input type="datetime" class="date" id='Vote_endtime' maxlength='4'>年<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>月<input type="datetime" class="date" id='Vote_endtime' maxlength='2'>日</br><input type="datetime" class="date" id='Vote_endtime' maxlength='2'>:<input type="datetime" class="date" id='Vote_endtime' maxlength='2'></br></td>
 				</tr>
 			</table>
 				<input type='checkbox' class='Vote_private' id='Vote_private' name='Vote_private'>僅有網址者可以參與投票</br>
@@ -66,7 +67,7 @@
 
 
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-<script src='js/Chart.js'></script>
+<script src='js/chart.js'></script>
 <script src='js/jquery-3.2.1.min.js'></script>
 <script src='js/bar.js'></script>
 <script src='js/all.js'></script>

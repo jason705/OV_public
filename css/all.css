@@ -1,6 +1,7 @@
 html{
 	background-color: rgb(52,80,131);
 	font-family: Microsoft JhengHei;
+	word-break: break-all
 }
 a:link,a:visited{
 	color: black;
@@ -22,15 +23,36 @@ a:link,a:visited{
 	float: left;
 	width: 150px;
 	height: 50px;
-	background-color: white;	
+}
+.logo img{
+	float: left;
+}
+.logo p{
+	color: white;
+	font-weight: bold;
+	float: left;
+	width: auto;
+}
+
+.search::-webkit-input-placeholder {
+    color:    white;
+}
+.search:-moz-placeholder {
+    color:    white;
+}
+.search::-moz-placeholder {
+    color:    white;
+}
+.search:-ms-input-placeholder {
+    color:    white;
 }
 .search{
 	border-radius: 3px;
 	margin-top: 13px;
 	margin-right: 20px;
 	height: 30px;
-	font-size: 18px;
-	width: 15%;
+	font-size: 16px;
+	width: 150px;
 	background-color: rgba(0,0,0,0);
 	float: right;
 	border:0px black solid;
@@ -45,6 +67,7 @@ a:link,a:visited{
 	float: right;
 }
 #function_button button{
+	border-radius: 5px;
 	margin-top: 5px;
 	margin-left: 10px;
 	width: 70px;
@@ -53,6 +76,7 @@ a:link,a:visited{
 	border:0px black solid;
 }
 #function_windows{
+	text-align: center;
 	box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
 	position: fixed;
 	top:80px;
@@ -60,7 +84,7 @@ a:link,a:visited{
 	display: none;
 	border-radius: 3px;
 	background-color: white;
-	width: 300px;
+	width: 200px;
 	padding:10px;
 }
 #function_windows a{
@@ -77,7 +101,7 @@ a:link,a:visited{
 .user_button{
 	border-radius: 3px;
 	float: left;
-	width: 120px;
+	width: 80px;
 	margin: 10px;
 	text-align: center;
 	transition:0.5s;
@@ -86,8 +110,8 @@ a:link,a:visited{
 	box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
 }
 .user_button img{
-	width: 120px;
-	height: 120px;
+	width: 80px;
+	height: 80px;
 }
 .contenter{
 	max-width: 650px;
@@ -193,19 +217,21 @@ a:link,a:visited{
 
 
 .vote_content{
+	width: 90%;
 	background-color: white;
-	padding: 10px 20px 30px 20px;
+	padding: 3% 5% 6% 5%;
 	border-radius: 5px;
 	box-shadow: 0px 2px 4px rgba(0,0,0,0.6);
 	font-size: 20px;
 }
 .vote_content h2{
 	font-size: 40px;
+	width: 100%;
 }
 .vote_content form{
 	margin-left: 20px;
 }
-.vote_content p{
+.vote_content p.info{
 	text-align: center;
 }
 .vote_content .send{
@@ -250,15 +276,144 @@ a:link,a:visited{
 }
 .back_vote{
 	display: block;
-	width: 120px;
+	width: 40%;
 	height: 60px;
 	font-size: 20px;
 	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 	text-align: center;
 	line-height: 60px;
-	margin-left:220px;
+	margin: 0 auto;
 }
 
-#function_windows{
-	text-align: center;
+.form_content .vcreate{
+	margin-top: 15px;
+	font-size: 16px;
+	border: none;
+	background-color: rgba(0,0,0,0);
+	font-family:  Microsoft JhengHei;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+.form_content .vcreate:hover{
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+}
+.form_content .vcreate:active{
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5) inset;
+}
+
+#vote_content form .choice{
+	margin: 0;
+	border: 1px red solid;
+	border-radius: 2px;
+}
+#mobile_button{
+	border:0px black solid;
+	background-color: rgba(0,0,0,0);
+	float: right;
+	width: 40px;
+	height: 40px;
+	display: none;
+	padding:0px;
+}
+#mobile_button_list{
+	display: none;
+	position: fixed;
+	top:50px;
+	right: 10px;
+	background-color: white;
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 150px;
+}
+#mobile_button_list button{
+	background-color: rgba(0,0,0,0);
+	font-size: 20px;
+	font-family: Microsoft JhengHei;
+	border: 0px black solid;
+	width: 100%;
+	border-bottom: 1px black solid;
+}
+#mobile_button_list button:hover{
+	background-color: #CCEEFF;
+}
+#mobile_button_list ul{
+	font-family: Microsoft JhengHei;
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+#mobile_button_list ul a{
+
+	display: block;
+}
+#mobile_button_list ul a:hover{
+	background-color: #CCEEFF;
+}
+#mobile_button_list ul a li{
+	width: 100%;
+	border-bottom: 1px black solid;
+	font-size: 20px;
+}
+#mobile_button_list ul a li img{
+	width: 20px;
+	height: 20px;
+}
+
+@media(max-width:768px){
+
+}
+
+@media(max-width:414px){
+	.vote_box h2{
+		width: 100%;
+	}
+	.vote_box p{
+		display: none;
+	}
+	#function_button{
+		display: none;
+	}
+	#mobile_button{
+		display: block;
+	}
+	.search{
+		margin-right:10px;
+	}
+	.form_content{
+		padding: 0px 0px 20px 0px;
+	}
+	.form_content input.text{
+		width: 200px;
+	}
+	#function_windows{
+		top:50px;
+		left: 0px;
+	}
+	.vote_content p.info{
+		font-size: 16px;
+	}
+	.vote_content .send{
+		padding:0px;
+		width: 35%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	.vote_content .show_result{
+		width: 35%;
+	}
+}
+
+@media(max-width:375px){
+	.logo{
+		width: 55px;
+	}
+	.logo p{
+		display: none;
+	}
+	.search{
+		width: 100px;
+	}
+	.footer a{
+		margin:0px 10px;
+	}
 }

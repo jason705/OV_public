@@ -2,8 +2,10 @@ $(document).ready(function(){
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
 		document.getElementById('function_button').innerHTML="<button class='create' onclick='create_vote()'>建立投票</button><button class='user' onclick='open_user()'>使用者</button>";
+		document.getElementById('mobile_button_list').innerHTML="<ul><button onclick='create_vote()'>建立投票</button><a href='index.html?created_vote'><li><img src='img/created.png'/>建立的投票</li></a><a href='index.html?voted_vote'><li><img src='img/voted.png'/>投選的投票</li></a><a href=''><li><img src='img/feedback.png'/>意見回饋</li></a><a href='javascript:logout()'><li><img src='img/logout.png'/>登出</li></a></ul>";
 	}else{
 		document.getElementById('function_button').innerHTML="<button class='login' onclick='open_login()'>登入</button><button class='register' onclick='open_register()'>註冊</button>";
+		document.getElementById('mobile_button_list').innerHTML="<button class='login' onclick='open_login()'>登入</button><button class='register' onclick='open_register()'>註冊</button>";
 	}
 
 })});
@@ -66,7 +68,7 @@ function open_login(){
 	$('#function_windows').toggleClass("log");
 	$('.reg').removeClass('reg');
 
-	document.getElementById('function_windows').innerHTML="<h2>登入</h2><input type='text' id='account' placeholder='帳號'/><input type='text' id='pwd' placeholder='密碼'/></br><button onclick='login()'>登入</button></br><button onclick='fblogin()'>FB登入</button>";
+	document.getElementById('function_windows').innerHTML="<h2>登入</h2><input type='text' id='account' placeholder='帳號'/><input type='password' id='pwd' placeholder='密碼'/></br><button onclick='login()'>登入</button></br><button onclick='fblogin()'>FB登入</button>";
 	$('.register.actived').removeClass('actived');
 }
 
@@ -78,13 +80,13 @@ function open_register(){
 	$('#function_windows').toggleClass("reg");
 	$('.log').removeClass('log');
 
-	document.getElementById('function_windows').innerHTML="<h2>註冊</h2><input type='text' id='account' placeholder='帳號'/><input type='text' id='pwd' placeholder='密碼'/></br><button onclick='register()'>註冊</button></br><button onclick='fblogin()'>FB登入</button>";
+	document.getElementById('function_windows').innerHTML="<h2>註冊</h2><input type='text' id='account' placeholder='帳號'/><input type='password' id='pwd' placeholder='密碼'/></br><button onclick='register()'>註冊</button></br><button onclick='fblogin()'>FB登入</button>";
 	$('.login.actived').removeClass('actived');
 };
 
 function open_user(){
 	$('.user').toggleClass("actived");
-	document.getElementById('function_windows').innerHTML="<a href='index.html?created_vote'><div class='user_button'><img src=''/>我建立的投票</div></a><a href='index.html?voted_vote'><div class='user_button'><img src=''/>我投選的投票</div></a><a href=''><div class='user_button'><img src=''/>意見回饋</div></a><a href='javascript:logout()'><div class='user_button'><img src=''/>登出</div></a>";
+	document.getElementById('function_windows').innerHTML="<a href='index.html?created_vote'><div class='user_button'><img src='img/created.png'/>建立的投票</div></a><a href='index.html?voted_vote'><div class='user_button'><img src='img/voted.png'/>投選的投票</div></a><a href=''><div class='user_button'><img src='img/feedback.png'/>意見回饋</div></a><a href='javascript:logout()'><div class='user_button'><img src='img/logout.png'/>登出</div></a>";
 	$('#function_windows').stop().slideToggle(500);
 }
 
@@ -187,7 +189,9 @@ function form_create(form){
     	vote: vote,
     	count: 0
   });
-setTimeout(function(){location.reload();},2000);
+var s=document.getElementsByClassName('vcreate');
+s[0].disabled='true';
+setTimeout(function(){location.replace('index.html');},2000);
 }
 
 
@@ -213,17 +217,22 @@ $('.search').keydown(function(event){
 
 function fblogin(){
 	var provider = new firebase.auth.FacebookAuthProvider();
-	provider.setCustomParameters({
-	'display': 'popup'
-	});
-	firebase.auth().signInWithPopup(provider).then(function(result) {
-	var token = result.credential.accessToken;
-	var user = result.user;
-	}).catch(function(error) {
-	var errorCode = error.code;
-	var errorMessage = error.message;
-	var email = error.email;
-	var credential = error.credential;
-	});
-};
+	firebase.auth().signInWithRedirect(provider);
+ 	firebase.auth().getRedirectResult().then(function(result) {
+     if (result.credential) {
+       var token = result.credential.accessToken;
+     }
+     var user = result.user;
+   }).catch(function(error) {
+   var errorCode = error.code;
+   var errorMessage = error.message;
+   var email = error.email;
+   var credential = error.credential;
+   });
+}
 
+
+
+function show_list(){
+	$('#mobile_button_list').stop().slideToggle(500);
+}

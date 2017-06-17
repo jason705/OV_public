@@ -6,7 +6,7 @@ key=key[1];
 setTimeout(function(){load();},1000);
 function load(){
 firebase.database().ref('/vote_subject/'+key).once('value', function(snapshot) {
-$('.vote_content').append("<h2>"+snapshot.val().votename+"</h2><canvas id='bar_0' width='400px' height='400px'></canvas></br><p>已有"+snapshot.val().count+"人參與此投票</br>截止日期："+snapshot.val().endtime+"</br><a href='vote.html?key="+snapshot.val().key+"' class='back_vote'>返回投票</a><div class='clear'></div>");
+$('.vote_content').append("<h2>"+snapshot.val().votename+"</h2><canvas id='bar_0' width='400px' height='200px'></canvas></br><p class='info'>已有"+snapshot.val().count+"人參與此投票</br>截止日期："+snapshot.val().endtime+"</br><a href='vote.html?key="+snapshot.val().key+"' class='back_vote'>返回投票</a><div class='clear'></div>");
 
 var ctx = document.getElementById("bar_0").getContext("2d");
 var data={
