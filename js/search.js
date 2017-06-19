@@ -10,6 +10,7 @@ firebase.database().ref('/vote_subject').once('value', function(snapshot) {
 
 var query=location.search;
 if(query!=''){
+	query=decodeURI(query);
 	query=query.split('?');
 	query=query[1].split('=');
 	if(query[0]=='query'){

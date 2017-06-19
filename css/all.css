@@ -106,6 +106,7 @@ a:link,a:visited{
 	box-shadow: 0px 2px 6px rgba(0,0,0,0.5) inset;
 }
 #account{
+	width:100%;
 	font-family:  Microsoft JhengHei;
 	font-size: 16px;
 	border:1px white solid;
@@ -119,6 +120,7 @@ a:link,a:visited{
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 #pwd{
+	width:100%;
 	font-family:  Microsoft JhengHei;
 	font-size: 16px;
 	border:1px white solid;
@@ -348,6 +350,7 @@ a:link,a:visited{
 	border-radius: 2px;
 }
 #mobile_button{
+	margin-top: 7px;
 	border:0px black solid;
 	background-color: rgba(0,0,0,0);
 	float: right;
@@ -498,6 +501,7 @@ a:link,a:visited{
 		width: 200px;
 	}
 	#function_windows{
+		width: 60%;
 		top:50px;
 		left: 0px;
 	}

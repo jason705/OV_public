@@ -2,7 +2,7 @@ $(document).ready(function(){
 	firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
 		document.getElementById('function_button').innerHTML="<button class='create' onclick='create_vote()'>建立投票</button><button class='user' onclick='open_user()'>使用者</button>";
-		document.getElementById('mobile_button_list').innerHTML="<ul><button onclick='create_vote()'>建立投票</button><a href='index.html?created_vote'><li><img src='img/created.png'/>建立的投票</li></a><a href='index.html?voted_vote'><li><img src='img/voted.png'/>投選的投票</li></a><a href=''><li><img src='img/feedback.png'/>意見回饋</li></a><a href='javascript:logout()'><li><img src='img/logout.png'/>登出</li></a></ul>";
+		document.getElementById('mobile_button_list').innerHTML="<ul><button onclick='create_vote()'>建立投票</button><a href='index.html?created_vote'><li><img src='img/created.png'/>建立的投票</li></a><a href='index.html?voted_vote'><li><img src='img/voted.png'/>投選的投票</li></a><a href='feedback.html'><li><img src='img/feedback.png'/>意見回饋</li></a><a href='javascript:logout()'><li><img src='img/logout.png'/>登出</li></a></ul>";
 	}else{
 		document.getElementById('function_button').innerHTML="<button class='login' onclick='open_login()'>登入</button><button class='register' onclick='open_register()'>註冊</button>";
 		document.getElementById('mobile_button_list').innerHTML="<button class='login' onclick='open_login()'>登入</button><button class='register' onclick='open_register()'>註冊</button>";

@@ -28,8 +28,9 @@ $('.feedback_send').click(function(){
 		text:content,
 		point:point    	
   		});
+  		var s=document.getElementById('feedback_send');
+		s.disabled='true';
+		setTimeout(function(){location.reload();},2000);
 	}
-	var s=document.getElementById('feedback_send');
-	s.disabled='true';
-	setTimeout(function(){location.reload();},2000);
+
 });
